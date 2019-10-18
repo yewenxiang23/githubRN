@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
-import NavigationUtil from '../navigator/NavigationUtil';
-import DynamicTabNavigator from '../navigator/DynamicTabNavigator';
+import React, {Component} from 'react'
+import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native'
+import NavigationUtil from '../navigator/NavigationUtil'
+import DynamicTabNavigator from '../navigator/DynamicTabNavigator'
 class HomePage extends Component {
   render() {
     // console.log(this.props.navigation)
     console.log('HomePage')
-    NavigationUtil.navigation = this.props.navigation;
+    NavigationUtil.navigation = this.props.navigation
     console.log(NavigationUtil.navigation)
-    return <DynamicTabNavigator />;
+    return <DynamicTabNavigator />
   }
 }
-export default HomePage;
+export default HomePage

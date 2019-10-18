@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,11 +6,12 @@ import {
   View,
   Text,
   Button,
-} from 'react-native';
-
+} from 'react-native'
+import {connect} from 'react-redux'
+import actions from '../action/index'
 class TrendingPage extends Component {
   render() {
-    const {navigation} = this.props;
+    const {navigation} = this.props
     return (
       <View style={styles.container}>
         <SafeAreaView>
@@ -21,18 +22,19 @@ class TrendingPage extends Component {
             <Button
               title="改变主题颜色"
               onPress={() => {
-                navigation.setParams({
-                  theme: {
-                    tintColor: 'red',
-                    updateTime: new Date().getTime(),
-                  },
-                });
+                // navigation.setParams({
+                //   theme: {
+                //     tintColor: 'red',
+                //     updateTime: new Date().getTime(),
+                //   },
+                // })
+                this.props.onThemeChange('#096')
               }}
             />
           </ScrollView>
         </SafeAreaView>
       </View>
-    );
+    )
   }
 }
 
@@ -41,6 +43,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollView: {},
-});
-
-export default TrendingPage;
+})
+const mapDispathToProps = dispatch => ({
+  onThemeChange: theme => dispatch(actions.onThemeChange(theme)),
+})
+export default connect(
+  null,
+  mapDispathToProps,
+)(TrendingPage)
